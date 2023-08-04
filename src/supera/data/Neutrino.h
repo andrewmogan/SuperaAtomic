@@ -51,6 +51,9 @@ namespace supera {
     /// Default destructor
     ~Neutrino(){}
 
+    // Dump method
+    std::string dump() const;
+
     /// neutrino's ID getter
     InstanceID_t id;            ///< "ID" of this particle in ParticleSet collection
     InstanceID_t vtx_id;            ///< "ID" of this particle in ParticleSet collection
