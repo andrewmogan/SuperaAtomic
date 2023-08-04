@@ -9,6 +9,7 @@
 
 #include "ImageMeta3D.h"
 #include "Particle.h"
+#include "Neutrino.h"
 
 void init_data(pybind11::module& m)
 {
@@ -92,6 +93,13 @@ void init_data(pybind11::module& m)
       .def_readwrite("group_id", &supera::Particle::group_id, DOC(supera, Particle, group_id))
       .def_readwrite("interaction_id", &supera::Particle::interaction_id, DOC(supera, Particle, interaction_id));
 
+  // classes from Neutrino.h
+  pybind11::class_<supera::Neutrino>(m, "Neutrino", DOC(supera, Neutrino))
+      .def(pybind11::init<>(), DOC(supera, Neutrino, Neutrino))
+      .def_readwrite("id", &supera::Neutrino::id, DOC(supera, Neutrino, id))
+      .def_readwrite("type", &supera::Neutrino::type, DOC(supera, Neutrino, type))
+      .def_readwrite("shape", &supera::Neutrino::shape, DOC(supera, Neutrino, shape))
+      .def_readwrite("trackid", &supera::Neutrino::trackid, DOC(supera, Neutrino, trackid))
 
   pybind11::class_<supera::ParticleInput>(m, "ParticleInput", DOC(supera, ParticleInput))
       .def(pybind11::init<>(), DOC(supera, ParticleInput, ParticleInput))
